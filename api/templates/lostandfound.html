@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lost and Found</title>
+
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 700px; margin: auto; }
+    label { font-weight: bold; margin-top: 15px; display: block; }
+    textarea, input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    button { margin-top: 15px; padding: 10px 20px; }
+  </style>
+</head>
+
+<body>
+
+<h1>Lost and Found – Compare Items</h1>
+
+<form method="post">
+  {% csrf_token %}
+
+  <fieldset>
+    <legend>Lost Item</legend>
+
+    <label>Description</label>
+    <textarea name="lost_desc" required></textarea>
+
+    <label>Category</label>
+    <select name="lost_cat" required>
+      <option>Wallet</option>
+      <option>Mobile</option>
+      <option>Keys</option>
+      <option>Documents</option>
+      <option>Electronics</option>
+      <option>Others</option>
+    </select>
+
+    <label>Date Lost</label>
+    <input type="date" name="lost_date" required>
+  </fieldset>
+
+  <fieldset style="margin-top:20px;">
+    <legend>Found Items</legend>
+
+    <label>Descriptions ( ; separated )</label>
+    <textarea name="found_desc" required></textarea>
+
+    <label>Categories ( ; separated )</label>
+    <input type="text" name="found_cat" required>
+
+    <label>Dates ( ; separated )</label>
+    <input type="text" name="found_date" required>
+  </fieldset>
+
+  <button type="submit">Compare</button>
+</form>
+
+{% if matches %}
+<hr>
+<h3>Matched Items</h3>
+
+{% for item in matches %}
+<div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+  <b>Category:</b> {{ item.category }} <br>
+  <b>Date:</b> {{ item.date }} <br>
+  <b>Description:</b> {{ item.description }}
+</div>
+{% endfor %}
+
+{% elif searched %}
+<p>No matches found.</p>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <link rel="stylesheet" href="C:\Users\naiti\OneDrive\Desktop\UniBuddy.in\css\styles.css">
+<style>
+.background-section {
+    background-image: url('https://imgs.search.brave.com/bOW-AdwhpNLCjZK3ZyAFK0-OtAjCOk2feJJFbGoVRu4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmpkbWFnaWNi/b3guY29tL3YyL2Nv/bXAvYWdyYS9rNS8w/NTYycHg1NjIueDU2/Mi4xMDExMjgwMTUx/MjcucjFrNS9jYXRh/bG9ndWUvZGF5YWxi/YWdoLWVkdWNhdGlv/bmFsLWluc3RpdHV0/ZS1kYXlhbC1iYWdo/LWFncmEtZW5naW5l/ZXJpbmctY29sbGVn/ZXMtMjg1czhxZ3Z1/ay5qcGc_dz0zODQw/JnE9NzU');   /* Replace with your image path or URL */
+    background-repeat: no-repeat;
+    background-size: cover;               /* Makes the image cover the entire div */
+    background-position: center;          /* Center the image */
+    height: 350px;                        /* Set your desired height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;                          /* Text color for contrast */
+  }
+</style>
+</head>
+<body>
+
+  <div class="background-section">
+  <header class="header-card" style="background: #636CCB; color: #fff; padding: 4px 18px; display: flex; align-items:center;">
+    <img src="https://media.licdn.com/dms/image/v2/D5603AQFbGGU_RVSlPw/profile-displayphoto-scale_400_400/B56ZnEzTgPJ4Ag-/0/1759943408652?e=1762387200&v=beta&t=_QXWPz5lD8boQf-0uyMYSMKt1A0tnaIJZn6LccI_Uy4"
+      alt="LOGO" class="naitik" width="100" style="border-radius:10px; margin-right:10px;">
+        <h1 style="margin:0; flex:1;">UniBuddy.in</h1><br>
+  <nav class="navbar" style="background: #FF3F7F;">
+    <a href="C:\Users\naiti\OneDrive\Desktop\UniBuddy.in\HTML- College Website\index.html">HOME</a>
+    <a href="C:\Users\naiti\OneDrive\Desktop\UniBuddy.in\AboutUs.html" >ABOUT US</a>
+      <a href="C:\Users\naiti\OneDrive\Desktop\UniBuddy.in\FAQs.html" >FAQs</a>
+    <a href="https://www.dei.ac.in/dei/">VISIT DEI</a>
+    <a href="C:\Users\naiti\OneDrive\Desktop\UniBuddy.in\AbouutDevelpoers.html" >ABOUT DEVELOPERS</a>
+  </nav>
+  <a href="C:\Users\naiti\OneDrive\Desktop\UniBuddy.in\Login.html" ><button>Login</button></a>
+  <a href="C:\Users\naiti\OneDrive\Desktop\UniBuddy.in\Register.html" class="btn"><button>Register</button></a>
+</div>
+</header>
+  <hr>
+<section class="carousel-card" style="max-width:1200px; margin:32px auto; padding:24px;">
+  <center>
+    <h2>Login Form</h2>
+    <form method="POST">
+        {% csrf_token %}
+    
+      <table border="1" cellpadding="10">
+        <tr>
+          <td><label for="username">Username:</label></td>
+          <td><input type="text" id="username" name="username" required></td>
+        </tr>
+        <tr>
+          <td><label for="password">Password:</label></td>
+          <td><input type="password" id="password" name="password" required></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <form>
+  <!-- Username and password fields here -->
+  <input type="submit" value="Login">
+
+</form>
+            <input type="reset" value="Reset">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </center>
+
+</body>
+</html>

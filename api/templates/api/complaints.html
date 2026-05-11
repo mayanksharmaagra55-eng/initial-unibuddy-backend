@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Complaint Page</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <style>
+  .background-section {
+    background-image: url('https://imgs.search.brave.com/bOW-AdwhpNLCjZK3ZyAFK0-OtAjCOk2feJJFbGoVRu4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmpkbWFnaWNi/b3guY29tL3YyL2Nv/bXAvYWdyYS9rNS8w/NTYycHg1NjIueDU2/Mi4xMDEuMjgwMTUx/MjcucjFrNS9jYXRh/bG9ndWUvZGF5YWxi/YWdoLWVkdWNhdGlv/bmFsLWluc3RpdHV0/ZS1kYXlhbC1iYWdo/LWFncmEtZW5naW5l/ZXJpbmctY29sbGVn/ZXMtMjg1czhxZ3Z1/ay5qcGc_dz0zODQw/JnE9NzU'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  </style>
+</head>
+<body>
+  <div class="background-section">
+    <header class="header-card" style="background: #636CCB; color: #fff; padding: 4px 18px; display: flex; align-items:center;">
+      <img src="https://media.licdn.com/dms/image/v2/D5603AQFbGGU_RVSlPw/profile-displayphoto-scale_400_400/B56ZnEzTgPJ4Ag-/0/1759943408652?e=1762387200&v=beta&t=_QXWPz5lD8boQf-0uyMYSMKt1A0tnaIJZn6LccI_Uy4"
+        alt="LOGO" class="naitik" width="100" style="border-radius:10px; margin-right:10px;">
+      <h1 style="margin:0; flex:1;">UniBuddy.in</h1>
+      <nav class="navbar" style="background: #FF3F7F;">
+        <a href="{% url 'home' %}">HOME</a>
+        <a href="{% url 'about_us' %}">ABOUT US</a>
+        <a href="{% url 'faqs' %}">FAQs</a>
+        <a href="https://www.dei.ac.in/dei/">VISIT DEI</a>
+        <a href="{% url 'about_developers' %}">ABOUT DEVELOPERS</a>
+      </nav>
+      <a href="{% url 'login_page' %}"><button>Login</button></a>
+      <a href="{% url 'register_page' %}" class="btn"><button>Register</button></a>
+    </header>
+  </div>
+  <hr>
+
+  <form method="post">
+    {% csrf_token %}
+    <table border="3" cellpadding="8">
+      <tr>
+        <td colspan="3" align="center"><b>COMPLAINT PAGE</b></td>
+      </tr>
+      <tr>
+        <td>Topic:</td>
+        <td>{{ form.topic }}</td>
+        <td><input type="button" value="BACK" onclick="window.history.back();"></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          {{ form.complaint_details }}
+        </td>
+      </tr>
+      <tr>
+        <td>Name:</td>
+        <td>{{ form.name }}</td>
+        <td>Roll no.: {{ form.rollno }}</td>
+      </tr>
+      <tr>
+        <td>Branch:</td>
+        <td>{{ form.branch }}</td>
+        <td>Year: {{ form.year }}</td>
+      </tr>
+      <tr>
+        <td colspan="3" align="center">
+          <input type="submit" value="SUBMIT">
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+
+<h1>ADMIN DASHBOARD</h1>
+
+<!-- Upload Timetable -->
+<h3>Upload New Timetable</h3>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="file" name="timetable_pdf" accept="application/pdf" required>
+  <button type="submit">Upload PDF</button>
+</form>
+
+<hr>
+
+<h3>Actions</h3>
+<ul>
+  <li>View New Complaints</li>
+  <li>View Existing Timetable</li>
+  <li>Edit Existing Timetable</li>
+</ul>
+
+</body>
+</html>

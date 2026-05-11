@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register Yourself</title>
+
+  <style>
+    .background-section {
+      background-image: url('https://imgs.search.brave.com/bOW-AdwhpNLCjZK3ZyAFK0-OtAjCOk2feJJFbGoVRu4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jb250/ZW50LmpkbWFnaWNi/b3guY29tL3YyL2Nv/bXAvYWdyYS9rNS8w/NTYycHg1NjIueDU2/Mi4xMDExMjgwMTUx/MjcucjFrNS9jYXRh/bG9ndWUvZGF5YWxi/YWdoLWVkdWNhdGlv/bmFsLWluc3RpdHV0/ZS1kYXlhbC1iYWdo/LWFncmEtZW5naW5l/ZXJpbmctY29sbGVn/ZXMtMjg1czhxZ3Z1/ay5qcGc_dz0zODQw');
+      background-size: cover;
+      background-position: center;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    table {
+      width: 100%;
+    }
+    td {
+      padding: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="background-section">
+  <h1 style="background:#636CCB;padding:12px;border-radius:10px;">UniBuddy.in Register</h1>
+</div>
+
+<section style="max-width:400px;margin:32px auto;padding:24px;border:2px solid black;">
+  
+  <!-- DJANGO FORM -->
+  <form action="{% url 'register_user' %}" method="POST">
+    {% csrf_token %}
+    
+    <table border="3" cellpadding="5">
+      <tr>
+        <td colspan="2" align="center"><b>REGISTER YOURSELF</b></td>
+      </tr>
+
+      <tr>
+        <td>Name:</td>
+        <td><input type="text" name="name" required></td>
+      </tr>
+
+      <tr>
+        <td>College ID:</td>
+        <td><input type="text" name="college_id" required></td>
+      </tr>
+
+      <tr>
+        <td>Email:</td>
+        <td><input type="email" name="email" required></td>
+      </tr>
+
+      <tr>
+        <td>Contact:</td>
+        <td><input type="tel" name="contact" required></td>
+      </tr>
+
+      <tr>
+        <td>Password:</td>
+        <td><input type="password" name="password" required></td>
+      </tr>
+
+      <tr>
+        <td>Confirm Password:</td>
+        <td><input type="password" name="confirm_password" required></td>
+      </tr>
+
+      <tr>
+        <td>Date:</td>
+        <td><input type="date" name="dob" required></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="center">
+          <input type="submit" value="SUBMIT">
+        </td>
+      </tr>
+    </table>
+
+  </form>
+</section>
+
+</body>
+</html>

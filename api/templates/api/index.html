@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>UniBuddy.in</title>
+
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* same CSS as you gave – unchanged */
+  </style>
+</head>
+
+<body>
+
+<div class="background-section">
+<header class="header-card">
+
+<img src="https://media.licdn.com/dms/image/v2/D5603AQFbGGU_RVSlPw/profile-displayphoto-scale_400_400/B56ZnEzTgPJ4Ag-/"
+ width="100" class="naitik">
+
+<h1>UniBuddy.in</h1>
+
+<nav class="navbar">
+  <a href="{% url 'home' %}">HOME</a>
+  <a href="{% url 'about' %}">ABOUT US</a>
+  <a href="{% url 'faq' %}">FAQs</a>
+  <a href="https://www.dei.ac.in/dei/">VISIT DEI</a>
+</nav>
+
+<a href="{% url 'login' %}"><button>Login</button></a>
+<a href="{% url 'register' %}"><button>Register</button></a>
+
+</header>
+</div>
+
+<hr>
+
+<section class="main-card">
+<h1>TIMETABLE SEARCH</h1>
+
+<form method="post">
+{% csrf_token %}
+Year <input name="year"><br>
+Branch <input name="branch"><br>
+Semester <input name="semester"><br>
+Day <input name="day"><br>
+<button type="submit">Submit</button>
+</form>
+</section>
+
+<hr>
+
+<section class="card">
+<a href="{% url 'complaint' %}"><button>COMPLAINT</button></a>
+<a href="{% url 'know_teacher' %}"><button>KNOW YOUR TEACHER</button></a>
+<a href="{% url 'lost_found' %}"><button>LOST & FOUND</button></a>
+</section>
+
+</body>
+</html>
